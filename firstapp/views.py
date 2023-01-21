@@ -7,12 +7,12 @@ from .models import Item
 
 def get_all_items(request):
     items = Item.objects.all()
-    return HttpResponse(items)
+    return HttpResponse(items[0].title)
 
 
 def get_item(request, item_id):
     items = Item.objects.filter(id=item_id)
-    return HttpResponse(items[0].title)
+    return HttpResponse(items)
 
 
 def add_item(request):
